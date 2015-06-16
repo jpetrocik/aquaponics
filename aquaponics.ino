@@ -1,42 +1,53 @@
 #include "application.h"
 #include "pump.h"
 #include "timer.h"
+#include "temperature.h"
+#include "dht.h"
+#include "heater.h"
 
 //Control variables
-int pumpCycle;
-int pumpStatus;
-int remainingTime;
-int nextStart;
+int airTemp=0;
+int humidity=0;
+int waterTemp=0;
+int remainingTime=0;
+int nextStart=0;
+int heaterStatus=0;
 
-Pump pump(7);
+Pump pump(A6);
 Timer timer;
+Temperature temperature;
+DHT dht(D3, DHT11);
+Heater heater(A4, 12, 14);
 
 void setup()
 {
   timer.control(&pump, 15*60*1000, 45*60*1000);
 
-  //expose functions
-  Spark.function("abort", abortAll);
+  temperature.init();
 
   //expose variables
-  Spark.variable("pumpCycle", &pumpCycle, INT);
-  Spark.variable("pumpStatus", &pumpStatus, INT);
+  Spark.variable("humidity", &humidity, INT);
+  Spark.variable("air", &airTemp, INT);
+  Spark.variable("water", &waterTemp, INT);
   Spark.variable("timer", &remainingTime, INT);
   Spark.variable("nextStart", &nextStart, INT);
+  Spark.variable("heaterStatus", &heaterStatus, INT);
+
 }
 
 void loop()
 {
   timer.update();
   pump.update();
+  temperature.update();
 
-  pumpCycle = timer.counter();
-  pumpStatus = pump.status();
-  remainingTime = 1 + timer.remainingTime()/60000;
-  nextStart = 1 + timer.nextStart()/60000;
-}
+  remainingTime = timer.remainingTime();
+  nextStart = timer.nextStart();
+  waterTemp = (int)temperature.read();
+  humidity = (int)dht.readHumidity();
+  airTemp = (int)dht.readTemperature();
 
-int abortAll(String command)
-{
-  pump.stop();
+  heater.update(waterTemp);
+
+  heaterStatus = heater.status();
 }

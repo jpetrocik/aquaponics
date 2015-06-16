@@ -24,6 +24,10 @@ class Timer
     void schedule();
 };
 
+int convertToMinutes(long millis){
+  return 1 + millis/60000;
+}
+
 Timer::Timer(){}
 
 void Timer::control(Pump* pump, long on, long delay){
@@ -42,14 +46,11 @@ int Timer::counter(){
 int Timer::remainingTime(){
   int split = _nextStop - millis();
 
-  if (split < _on)
-    return split;
-
-    return 0;
+  return (split < _on)?convertToMinutes(split):0;
 }
 
 long Timer::nextStart(){
-  return (_nextStop < _nextStart)?0:_nextStart-millis();
+  return (_nextStop < _nextStart)?0:convertToMinutes(_nextStart-millis());
 }
 
 void Timer::update(){

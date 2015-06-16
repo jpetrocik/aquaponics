@@ -8,17 +8,17 @@
 
 class Pump
 {
-  public:
-    Pump(int pin);
-    void start();
-    void start(long ms);
-    void stop();
-    int status();
-    void update();
-  private:
-    int _pin;
-    long _stopTime;
-    int _status;
+public:
+  Pump(int pin);
+  void start();
+  void start(long ms);
+  void stop();
+  int status();
+  void update();
+private:
+  int _pin;
+  long _stopTime;
+  int _status;
 };
 
 Pump::Pump(int pin){
@@ -34,7 +34,7 @@ void Pump::start(){
 }
 
 void Pump::start(long ms){
-  digitalWrite(_pin, LOW);
+  digitalWrite(_pin, HIGH);
   _status = PUMP_ON;
   _stopTime = (ms > 0)?millis()+ms:0;
 
