@@ -14,7 +14,7 @@ int nextStart=0;
 int heaterStatus=0;
 
 Pump pump(A6);
-Timer timer;
+PumpTimer timer;
 Temperature temperature;
 DHT dht(D3, DHT11);
 Heater heater(A4, 12, 14);

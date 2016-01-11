@@ -1,13 +1,13 @@
-#ifndef Timer_h
-#define Timer_h
+#ifndef PumpTimer_h
+#define PumpTimer_h
 
 #include "application.h"
 #include "pump.h"
 
-class Timer
+class PumpTimer
 {
   public:
-    Timer();
+    PumpTimer();
     void control(Pump* pump, long on, long delay);
     int counter();
     int remainingTime();
@@ -28,9 +28,9 @@ int convertToMinutes(long millis){
   return 1 + millis/60000;
 }
 
-Timer::Timer(){}
+PumpTimer::PumpTimer(){}
 
-void Timer::control(Pump* pump, long on, long delay){
+void PumpTimer::control(Pump* pump, long on, long delay){
   _pump = pump;
   _on = on;
   _delay = delay;
@@ -39,21 +39,21 @@ void Timer::control(Pump* pump, long on, long delay){
   _counter = 0;
 }
 
-int Timer::counter(){
+int PumpTimer::counter(){
   return _counter;
 }
 
-int Timer::remainingTime(){
+int PumpTimer::remainingTime(){
   int split = _nextStop - millis();
 
   return (split < _on)?convertToMinutes(split):0;
 }
 
-long Timer::nextStart(){
+long PumpTimer::nextStart(){
   return (_nextStop < _nextStart)?0:convertToMinutes(_nextStart-millis());
 }
 
-void Timer::update(){
+void PumpTimer::update(){
   long now = millis();
 
   /*
