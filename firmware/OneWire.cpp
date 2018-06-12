@@ -13,8 +13,8 @@ use in the contributed libs list.
 
 6/2014 - Hotaman 
 
-I've taken the code that Spark Forum user tidwelltimj posted 
-split it back into separte code and header files and put back in the 
+I've taken the code that Spark Forum user tidwelltimj posted
+split it back into separte code and header files and put back in the
 credits and comments and got it compiling on the command line within SparkCore core-firmware
 
 
@@ -253,7 +253,7 @@ uint8_t OneWire::read_bit(void)
 // go tri-state at the end of the write to avoid heating in a short or
 // other mishap.
 //
-void OneWire::write(uint8_t v, uint8_t power /* = 0 */) 
+void OneWire::write(uint8_t v, uint8_t power /* = 0 */)
 {
     uint8_t bitMask;
 
@@ -271,7 +271,7 @@ void OneWire::write(uint8_t v, uint8_t power /* = 0 */)
     }
 }
 
-void OneWire::write_bytes(const uint8_t *buf, uint16_t count, bool power /* = 0 */) 
+void OneWire::write_bytes(const uint8_t *buf, uint16_t count, bool power /* = 0 */)
 {
     for (uint16_t i = 0 ; i < count ; i++)
         write(buf[i]);
@@ -289,7 +289,7 @@ void OneWire::write_bytes(const uint8_t *buf, uint16_t count, bool power /* = 0 
 //
 // Read a byte
 //
-uint8_t OneWire::read() 
+uint8_t OneWire::read()
 {
     uint8_t bitMask;
     uint8_t r = 0;
@@ -301,7 +301,7 @@ uint8_t OneWire::read()
     return r;
 }
 
-void OneWire::read_bytes(uint8_t *buf, uint16_t count) 
+void OneWire::read_bytes(uint8_t *buf, uint16_t count)
 {
     for (uint16_t i = 0 ; i < count ; i++)
         buf[i] = read();

@@ -16,7 +16,7 @@ class PumpTimer
   private:
     Pump* _pump;
     long _on;
-    int _delay;
+    long _delay;
     long _nextStart;
     long _nextStop;
     long _counter;

@@ -12,6 +12,7 @@ int waterTemp=0;
 int remainingTime=0;
 int nextStart=0;
 int heaterStatus=0;
+int pumpStatus=0;
 
 Pump pump(A6);
 PumpTimer timer;
@@ -21,7 +22,7 @@ Heater heater(A4, 12, 14);
 
 void setup()
 {
-  timer.control(&pump, 15*60*1000, 45*60*1000);
+  timer.control(&pump, 3*60*1000, 180*60*1000);
 
   temperature.init();
 
@@ -32,7 +33,22 @@ void setup()
   Spark.variable("timer", &remainingTime, INT);
   Spark.variable("nextStart", &nextStart, INT);
   Spark.variable("heaterStatus", &heaterStatus, INT);
+  Spark.variable("pumpStatus", &pumpStatus, INT);
 
+
+  //expose functions
+  Particle.function("pumpOn", startPump);
+  Particle.function("pumpOff", stopPump);
+}
+
+int startPump(String extra) {
+  pump.start();
+  return 0;
+}
+
+int stopPump(String extra) {
+  pump.stop();
+  return 0;
 }
 
 void loop()
@@ -46,6 +62,7 @@ void loop()
   waterTemp = (int)temperature.read();
   humidity = (int)dht.readHumidity();
   airTemp = (int)dht.readTemperature();
+  pumpStatus = (int)pump.status();
 
   heater.update(waterTemp);
 

@@ -11,10 +11,10 @@ private:
     byte type_s;
     byte chiptype;
     char szName[MAX_NAME];
-    
+
 public:
     DS18B20(uint16_t pin);
-    
+
     boolean search();
     void resetsearch();
     void getROM(char szROM[]);
