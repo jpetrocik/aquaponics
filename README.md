@@ -38,23 +38,23 @@ The Sonoff uses a ESP8266 Wifi chip, so this section discusses flashing the ESP8
 
 Flash Mode: DOUT (compatiable)
 
-FLash Size: 1M (no spiff)
+Flash Size: 1M (no spiff)
 
-Port: <select your programmer from the list>
+Port: \<select your programmer from the list\>
   
 
 * Programming the Sonoff by clickign to "Upload" icon
 
 
-### Sonoff Dual R2 Programming Headers 
+## Sonoff Dual R2 Programming Headers 
 
 ![Dual R2 Programming Headers](https://github.com/jpetrocik/aquaponics/raw/master/sonoff_dual_r2_pins.png)
 
-### Enclosure
+## Enclosure
 
 ![Enclosure](https://github.com/jpetrocik/aquaponics/raw/master/enclosure.jpg)
 
-### Programmer
+## Programmer
 
 ![Programmer](https://github.com/jpetrocik/aquaponics/raw/master/programmer.jpg)
 
