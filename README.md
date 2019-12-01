@@ -19,11 +19,11 @@ Firmware to control an aquaponics system using Sonoff Dual R2.  The Sonoff Dual 
 ![Programmer](https://github.com/jpetrocik/aquaponics/raw/master/programmer.jpg)
 
 
-### Flashing Firmware
+## Flashing Firmware
 
 The Sonoff uses a ESP8266 Wifi chip, so this section discusses flashing the ESP8266 chip on the Sonoff Dual R2. For more details google: "Arduino ESP8266"
 
-## Setup the Arduino IDE
+### Setup the Arduino IDE
 
 * Download Arduino IDE.
 
@@ -35,7 +35,7 @@ The Sonoff uses a ESP8266 Wifi chip, so this section discusses flashing the ESP8
 
 * Go again to "Tools -> Board" and select "Generic ESP8266 Module".
 
-## Flashing
+### Flashing
 
 * Place a jumper on the pins labeled BUTTON 0 and GND, without this the Sonoff does not enter flash mode.
 
