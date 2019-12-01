@@ -4,6 +4,6 @@ Firmware to control an aquaponics system using Sonoff Dual R2.  The Sonoff Dual 
 
 ### Enclosure
 
-[Enclosure](http://ithub.com/jpetrocik/aquaponics/enclosure.png)
+![Enclosure](https://github.com/jpetrocik/aquaponics/raw/master/enclosure.jpg)
 
 
