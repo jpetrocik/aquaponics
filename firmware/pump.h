@@ -1,8 +1,6 @@
 #ifndef Pump_h
 #define Pump_h
 
-#include "application.h"
-
 #define PUMP_ON  1
 #define PUMP_OFF 0
 
@@ -10,9 +8,9 @@ class Pump
 {
 public:
   Pump(int pin);
-  void start();
-  void start(long ms);
-  void stop();
+  int start();
+  int start(long ms);
+  int stop();
   int status();
   void update();
 private:
@@ -29,20 +27,21 @@ Pump::Pump(int pin){
   _stopTime = 0;
 }
 
-void Pump::start(){
-  start(0);
+int Pump::start(){
+  return start(0);
 }
 
-void Pump::start(long ms){
+int Pump::start(long ms){
   digitalWrite(_pin, HIGH);
   _status = PUMP_ON;
   _stopTime = (ms > 0)?millis()+ms:0;
-
+  return _status;
 }
 
-void Pump::stop(){
+int Pump::stop(){
   digitalWrite(_pin, LOW);
   _status = PUMP_OFF;
+  return _status;
 }
 
 int Pump::status(){

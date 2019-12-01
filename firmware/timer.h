@@ -1,7 +1,6 @@
 #ifndef PumpTimer_h
 #define PumpTimer_h
 
-#include "application.h"
 #include "pump.h"
 
 class PumpTimer
