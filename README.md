@@ -6,19 +6,6 @@ Firmware to control an aquaponics system using Sonoff Dual R2.  The Sonoff Dual 
 
 ![Dual R2](https://github.com/jpetrocik/aquaponics/raw/master/sonoff_dual_r2.png)
 
-### Sonoff Dual R2 Programming Headers 
-
-![Dual R2 Programming Headers](https://github.com/jpetrocik/aquaponics/raw/master/sonoff_dual_r2_pins.png)
-
-### Enclosure
-
-![Enclosure](https://github.com/jpetrocik/aquaponics/raw/master/enclosure.jpg)
-
-### Programmer
-
-![Programmer](https://github.com/jpetrocik/aquaponics/raw/master/programmer.jpg)
-
-
 ## Flashing Firmware
 
 The Sonoff uses a ESP8266 Wifi chip, so this section discusses flashing the ESP8266 chip on the Sonoff Dual R2. For more details google: "Arduino ESP8266"
@@ -57,5 +44,19 @@ Port: <select your programmer from the list>
   
 
 * Programming the Sonoff by clickign to "Upload" icon
+
+
+### Sonoff Dual R2 Programming Headers 
+
+![Dual R2 Programming Headers](https://github.com/jpetrocik/aquaponics/raw/master/sonoff_dual_r2_pins.png)
+
+### Enclosure
+
+![Enclosure](https://github.com/jpetrocik/aquaponics/raw/master/enclosure.jpg)
+
+### Programmer
+
+![Programmer](https://github.com/jpetrocik/aquaponics/raw/master/programmer.jpg)
+
 
 
